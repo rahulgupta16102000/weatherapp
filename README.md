@@ -21,7 +21,7 @@ The Weather App is a simple application that allows users to check the weather f
 
 1. Clone the repository:
 
-git clone <repository-url>
+git clone https://github.com/rahulgupta16102000/weatherapp.git
  
    ## Frontend 
   1. cd frondend 
