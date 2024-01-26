@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void findInterleavings(const string& str1, const string& str2, const string& currentInterleaving, vector<string>& result) {
+     if (str1.empty() && str2.empty()) {
+        result.push_back(currentInterleaving);
+        return;
+    }
+
+     if (!str1.empty()) {
+        findInterleavings(str1.substr(1), str2, currentInterleaving + str1[0], result);
+    }
+    if (!str2.empty()) {
+        findInterleavings(str1, str2.substr(1), currentInterleaving + str2[0], result);
+    }
+}
+
+vector<string> getAllInterleavings(const string& str1, const string& str2) {
+    vector<string> result;
+    findInterleavings(str1, str2, "", result);
+    return result;
+}
+
+int main() {
+    string inputStr1, inputStr2;
+
+    cout << "Enter the first string: ";
+    getline(cin, inputStr1);
+
+    cout << "Enter the second string: ";
+    getline(cin, inputStr2);
+
+    vector<string> interleavings = getAllInterleavings(inputStr1, inputStr2);
+
+    for (size_t i = 0; i < interleavings.size(); ++i) {
+        cout << interleavings[i] << endl;
+    }
+
+    return 0;
+}
